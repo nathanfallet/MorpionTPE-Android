@@ -1,16 +1,13 @@
-package me.nathanfallet.morpiontpe;
+package me.nathanfallet.morpiontpe.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 
-import me.nathanfallet.morpiontpe.models.Computer;
-import me.nathanfallet.morpiontpe.models.Game;
-import me.nathanfallet.morpiontpe.models.Human;
+import me.nathanfallet.morpiontpe.R;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -29,21 +26,8 @@ public class MenuActivity extends AppCompatActivity {
         View.OnClickListener gameListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Game game = null;
-
-                // We determine who play the game
-                if (v.getId() == R.id.button1) {
-                    game = new Game(new Human(), new Human());
-                } else if (v.getId() == R.id.button2) {
-                    // TODO: Add a random order
-                    game = new Game(new Computer(), new Human());
-                } else {
-                    game = new Game(new Computer(), new Computer());
-                }
-
-                // And we start the activity with them
-                Intent intent = new Intent(MenuActivity.this, MenuActivity.class);
-                intent.putExtra("game", game);
+                Intent intent = new Intent(MenuActivity.this, GameActivity.class);
+                intent.putExtra("id", v.getId());
                 startActivity(intent);
             }
         };

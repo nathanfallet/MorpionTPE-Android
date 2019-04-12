@@ -6,6 +6,10 @@ import java.util.Comparator;
 
 public class Computer extends Player {
 
+    public Computer(Sign sign) {
+        super(sign);
+    }
+
     // Override player play function
     @Override
     public void play(Game game, GamePlayCallback callback) {

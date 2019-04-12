@@ -1,8 +1,6 @@
 package me.nathanfallet.morpiontpe.models;
 
-import java.io.Serializable;
-
-public class Game implements Serializable {
+public class Game {
 
     // Game vars
     private Sign[][] table = {
@@ -13,17 +11,31 @@ public class Game implements Serializable {
     private Player player1;
     private Player player2;
     private Sign current;
+    private UIUpdater updater;
 
     // Init the game
-    public Game(Player player1, Player player2) {
+    public Game(Player player1, Player player2, UIUpdater updater) {
         this.player1 = player1;
         this.player2 = player2;
         this.current = player1.sign;
+        this.updater = updater;
     }
 
     // Getters
     public Sign[][] getTable() {
         return table;
+    }
+
+    public Player getPlayer1() {
+        return player1;
+    }
+
+    public Player getPlayer2() {
+        return player2;
+    }
+
+    public Sign getCurrent() {
+        return current;
     }
 
     // Gameplay
@@ -46,7 +58,7 @@ public class Game implements Serializable {
                             }
 
                             // Update UI
-                            // TODO
+                            updater.updateUI();
 
                             // And go to next move
                             nextMove();
@@ -60,7 +72,7 @@ public class Game implements Serializable {
 
         // The game ended
         current = Sign.empty;
-        // TODO: Update UI
+        updater.updateUI();
     }
 
     // Make a player plays in the board

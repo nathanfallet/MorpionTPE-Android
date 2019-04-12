@@ -7,4 +7,12 @@
     <string name="button3">Computer VS Computer</string>
     <string name="settings">Settings</string>
     <string name="bottom">App made by Nathan Fallet\n© Groupe MINASTE</string>
+
+    <!-- Game -->
+    <string name="back">Go back to the menu</string>
+    <string name="playing_computer">Game is playing:\nComputer (%s), it\'s to you!</string>
+    <string name="playing_human">Game is playing:\nPlayer %s, it\'s to you!</string>
+    <string name="ended_computer">Game has ended!\nWinner: Computer (%s)</string>
+    <string name="ended_human">Game has ended!\nWinner: Player %s</string>
+    <string name="ended_empty">Game has ended!\nIt\'s a tie</string>
 </resources>
