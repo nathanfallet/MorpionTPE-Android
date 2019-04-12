@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">MorpionTPE</string>
+    <string name="app_name" translatable="false">Tic TAI Toe</string>
+
 </resources>
