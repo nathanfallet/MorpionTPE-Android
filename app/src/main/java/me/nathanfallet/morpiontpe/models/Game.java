@@ -1,6 +1,8 @@
 package me.nathanfallet.morpiontpe.models;
 
-public class Game {
+import java.io.Serializable;
+
+public class Game implements Serializable {
 
     // Game vars
     private Sign[][] table = {

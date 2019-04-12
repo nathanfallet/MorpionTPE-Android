@@ -1,4 +1,10 @@
 <resources>
+    <!-- Menu -->
     <string name="app_name" translatable="false">Tic TAI Toe</string>
-
+    <string name="subname">A tic tac toe, with an AI and PRO features</string>
+    <string name="button1">Player VS Player</string>
+    <string name="button2">Player VS Computer</string>
+    <string name="button3">Computer VS Computer</string>
+    <string name="settings">Settings</string>
+    <string name="bottom">App made by Nathan Fallet\n© Groupe MINASTE</string>
 </resources>
