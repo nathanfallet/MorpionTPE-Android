@@ -36,7 +36,7 @@ public class Computer extends Player {
 
                     // Adn we get the result
                     Sign win = game.win(copy);
-                    int score = 0;
+                    int score;
 
                     // If the table is full
                     if (win == Sign.empty && game.full(copy)) {
@@ -69,7 +69,7 @@ public class Computer extends Player {
         moves.sort(new Comparator<Move>() {
             @Override
             public int compare(Move o1, Move o2) {
-                return o1.score - o2.score;
+                return o2.score - o1.score;
             }
         });
 

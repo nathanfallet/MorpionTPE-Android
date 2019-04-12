@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Arrays;
@@ -24,6 +25,15 @@ import me.nathanfallet.morpiontpe.models.UIUpdater;
 public class GameActivity extends AppCompatActivity implements UIUpdater {
 
     private Game game;
+    private ImageView box1;
+    private ImageView box2;
+    private ImageView box3;
+    private ImageView box4;
+    private ImageView box5;
+    private ImageView box6;
+    private ImageView box7;
+    private ImageView box8;
+    private ImageView box9;
     private TextView infos;
     private Button back;
 
@@ -39,6 +49,15 @@ public class GameActivity extends AppCompatActivity implements UIUpdater {
         setContentView(R.layout.activity_game);
 
         // Get views
+        box1 = findViewById(R.id.box1);
+        box2 = findViewById(R.id.box2);
+        box3 = findViewById(R.id.box3);
+        box4 = findViewById(R.id.box4);
+        box5 = findViewById(R.id.box5);
+        box6 = findViewById(R.id.box6);
+        box7 = findViewById(R.id.box7);
+        box8 = findViewById(R.id.box8);
+        box9 = findViewById(R.id.box9);
         infos = findViewById(R.id.infos);
         back = findViewById(R.id.back);
 
@@ -103,6 +122,22 @@ public class GameActivity extends AppCompatActivity implements UIUpdater {
                 infos.setText(getString(R.string.ended_empty));
             }
             back.setVisibility(View.VISIBLE);
+        }
+
+        // Update images
+        ImageView[][] boxes = {{box1, box4, box7}, {box2, box5, box8}, {box3, box6, box9}};
+
+        for (int x = 0; x < 3; x++) {
+            for (int y = 0; y < 3; y++) {
+                ImageView box = boxes[x][y];
+                Sign sign = game.getTable()[x][y];
+
+                if (sign != Sign.empty) {
+                    box.setImageDrawable(getDrawable(sign == Sign.X ? R.drawable.x : R.drawable.o));
+                } else {
+                    box.setImageDrawable(null);
+                }
+            }
         }
     }
 
