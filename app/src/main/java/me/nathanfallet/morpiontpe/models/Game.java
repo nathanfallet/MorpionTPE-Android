@@ -1,5 +1,8 @@
 package me.nathanfallet.morpiontpe.models;
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+
 import org.greenrobot.eventbus.EventBus;
 
 public class Game {
@@ -58,7 +61,7 @@ public class Game {
                             }
 
                             // Update UI
-                            EventBus.getDefault().post(new UIUpdater());
+                            EventBus.getDefault().post(new NotificationName.BoardUpdated());
 
                             // And go to next move
                             nextMove();
@@ -72,7 +75,7 @@ public class Game {
 
         // The game ended
         current = Sign.empty;
-        EventBus.getDefault().post(new UIUpdater());
+        EventBus.getDefault().post(new NotificationName.GameEnded());
     }
 
     // Make a player plays in the board

@@ -1,9 +1,14 @@
 package me.nathanfallet.morpiontpe.activities;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatDelegate;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -11,6 +16,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Logger;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
@@ -24,7 +30,7 @@ import me.nathanfallet.morpiontpe.models.Game;
 import me.nathanfallet.morpiontpe.models.Human;
 import me.nathanfallet.morpiontpe.models.Player;
 import me.nathanfallet.morpiontpe.models.Sign;
-import me.nathanfallet.morpiontpe.models.UIUpdater;
+import me.nathanfallet.morpiontpe.models.NotificationName;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -129,8 +135,46 @@ public class GameActivity extends AppCompatActivity {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onUIUpdater(UIUpdater updater) {
+    public void onBoardUpdated(NotificationName.BoardUpdated updater) {
         updateUI();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onGameEnded(NotificationName.GameEnded updater) {
+        updateUI();
+
+        // Update game count
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        int numberOfGamesPlayed = prefs.getInt("numberOfGamesPlayed", 0) + 1;
+        prefs.edit().putInt("numberOfGamesPlayed", numberOfGamesPlayed).apply();
+
+        // Check for new PRO features
+        boolean darkmodeUnlocked = prefs.getBoolean("darkmodeUnlocked", false);
+        boolean hardcoreUnlocked = prefs.getBoolean("hardcoreUnlocked", false);
+
+        // Check for darkmode
+        if (!darkmodeUnlocked && numberOfGamesPlayed >= 5) {
+            // Save that the feature is unlocked
+            prefs.edit().putBoolean("darkmodeUnlocked", true).apply();
+
+            // And show alert
+            new AlertDialog.Builder(this).setTitle(R.string.unlocked_title).setMessage(R.string.unlocked_darkmode).setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {}
+            }).create().show();
+        }
+
+        // Check for hardcore
+        if (!hardcoreUnlocked && ((game.getPlayer1() instanceof Human && game.getPlayer2() instanceof Computer && game.win(game.getTable()) == game.getPlayer1().sign) || (game.getPlayer1() instanceof Computer && game.getPlayer2() instanceof Human && game.win(game.getTable()) == game.getPlayer2().sign))) {
+            // Save that the feature is unlocked
+            prefs.edit().putBoolean("hardcoreUnlocked", true).apply();
+
+            // And show alert
+            new AlertDialog.Builder(this).setTitle(R.string.unlocked_title).setMessage(R.string.unlocked_hardcore).setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {}
+            }).create().show();
+        }
     }
 
     public void updateUI() {
