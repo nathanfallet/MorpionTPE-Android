@@ -1,5 +1,7 @@
 package me.nathanfallet.morpiontpe.models;
 
+import org.greenrobot.eventbus.EventBus;
+
 public class Game {
 
     // Game vars
@@ -11,14 +13,12 @@ public class Game {
     private Player player1;
     private Player player2;
     private Sign current;
-    private UIUpdater updater;
 
     // Init the game
-    public Game(Player player1, Player player2, UIUpdater updater) {
+    public Game(Player player1, Player player2) {
         this.player1 = player1;
         this.player2 = player2;
         this.current = player1.sign;
-        this.updater = updater;
     }
 
     // Getters
@@ -58,7 +58,7 @@ public class Game {
                             }
 
                             // Update UI
-                            updater.updateUI();
+                            EventBus.getDefault().post(new UIUpdater());
 
                             // And go to next move
                             nextMove();
@@ -72,7 +72,7 @@ public class Game {
 
         // The game ended
         current = Sign.empty;
-        updater.updateUI();
+        EventBus.getDefault().post(new UIUpdater());
     }
 
     // Make a player plays in the board

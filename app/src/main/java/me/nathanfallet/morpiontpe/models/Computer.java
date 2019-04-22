@@ -12,9 +12,14 @@ public class Computer extends Player {
 
     // Override player play function
     @Override
-    public void play(Game game, GamePlayCallback callback) {
-        Move best = bestMove(game, game.getTable(), sign);
-        callback.completion(best.x, best.y);
+    public void play(Game game, final GamePlayCallback callback) {
+        final Move best = bestMove(game, game.getTable(), sign);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                callback.completion(best.x, best.y);
+            }
+        }).start();
     }
 
     // Select the best possibility of game
@@ -31,7 +36,7 @@ public class Computer extends Player {
                 // If the cell is free
                 if (table[x][y] == Sign.empty) {
                     // We copy the table in which we will test
-                    Sign[][] copy = table.clone();
+                    Sign[][] copy = copy(table);
                     copy[x][y] = sign;
 
                     // Adn we get the result
@@ -75,6 +80,20 @@ public class Computer extends Player {
 
         // Return the best move
         return moves.get(0);
+    }
+
+    public Sign[][] copy(Sign[][] table) {
+        Sign[][] copy = {
+                {Sign.empty, Sign.empty, Sign.empty},
+                {Sign.empty, Sign.empty, Sign.empty},
+                {Sign.empty, Sign.empty, Sign.empty}
+        };
+        for (int x = 0; x < 3; x++) {
+            for (int y = 0; y < 3; y++) {
+                copy[x][y] = table[x][y];
+            }
+        }
+        return copy;
     }
 
     // Define an extra struct for a move
