@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/backgroundColor"
     tools:context=".activities.GameActivity">
 
     <GridLayout android:id="@+id/grid"
@@ -133,6 +134,7 @@
         android:layout_marginBottom="30dp"
         android:textSize="26sp"
         android:textAlignment="center"
+        android:textColor="?attr/textColor"
         android:text="" />
 
     <Button

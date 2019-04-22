@@ -15,4 +15,18 @@
     <string name="ended_computer">Game has ended!\nWinner: Computer (%s)</string>
     <string name="ended_human">Game has ended!\nWinner: Player %s</string>
     <string name="ended_empty">Game has ended!\nIt\'s a tie</string>
+    <string name="unlocked_title">You unlocked a PRO feature!</string>
+    <string name="unlocked_darkmode">You can now enable dark mode in settings</string>
+    <string name="unlocked_hardcore">You can now enable hardcore in settings</string>
+
+    <!-- Settings -->
+    <string name="pro">Tic TAI PRO features</string>
+    <string name="no_pro">Play to unlock PRO features</string>
+    <string name="isDarkMode">Enable dark mode</string>
+    <string name="isHardcore">Enable hardcore</string>
+    <string name="about">More about the app</string>
+    <string name="video">See the development video</string>
+    <string name="instagram">Follow the developer on Instagram</string>
+    <string name="moreApps">More apps</string>
+    <string name="donate">Donate</string>
 </resources>
