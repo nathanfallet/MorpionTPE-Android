@@ -5,12 +5,16 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v14.preference.SwitchPreference;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.PreferenceScreen;
 
+import org.greenrobot.eventbus.EventBus;
+
 import me.nathanfallet.morpiontpe.R;
+import me.nathanfallet.morpiontpe.models.NotificationName;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
 
@@ -42,6 +46,17 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         SwitchPreference isDarkMode = new SwitchPreference(activityContext);
         isDarkMode.setTitle(R.string.isDarkMode);
         isDarkMode.setKey("isDarkMode");
+        isDarkMode.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object o) {
+                boolean enabled = (boolean) o;
+
+                AppCompatDelegate.setDefaultNightMode(enabled ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
+                EventBus.getDefault().post(new NotificationName.ThemeUpdated());
+
+                return true;
+            }
+        });
 
         SwitchPreference isHardcore = new SwitchPreference(activityContext);
         isHardcore.setTitle(R.string.isHardcore);

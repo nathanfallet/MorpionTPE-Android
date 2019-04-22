@@ -3,6 +3,8 @@
     <color name="white">#FFF</color>
     <color name="black">#000</color>
     <color name="darkBackground">#222</color>
+    <color name="lightForeground">#DDD</color>
+    <color name="darkForeground">#333</color>
     <color name="lightActive">#0078FF</color>
     <color name="darkActive">#D9534F</color>
 </resources>

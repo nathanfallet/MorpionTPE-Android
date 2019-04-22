@@ -1,6 +1,7 @@
 package me.nathanfallet.morpiontpe.activities;
 
 import android.content.Intent;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatDelegate;
@@ -8,20 +9,38 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import me.nathanfallet.morpiontpe.R;
+import me.nathanfallet.morpiontpe.models.NotificationName;
 
 public class MenuActivity extends AppCompatActivity {
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Check for dark mode
-        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
-            setTheme(R.style.AppThemeDark);
-        } else {
-            setTheme(R.style.AppThemeLight);
+        // Read dark mode from preferences
+        if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("isDarkMode", false)) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         }
+
+        // Update the theme
+        updateTheme();
 
         // Remove the title bar
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -59,6 +78,20 @@ public class MenuActivity extends AppCompatActivity {
         button2.setOnClickListener(gameListener);
         button3.setOnClickListener(gameListener);
         settings.setOnClickListener(settingsListener);
-
     }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onThemeUpdated(NotificationName.ThemeUpdated updated) {
+        updateTheme();
+    }
+
+    public void updateTheme() {
+        // Check for dark mode
+        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+            setTheme(R.style.AppThemeDark);
+        } else {
+            setTheme(R.style.AppThemeLight);
+        }
+    }
+
 }

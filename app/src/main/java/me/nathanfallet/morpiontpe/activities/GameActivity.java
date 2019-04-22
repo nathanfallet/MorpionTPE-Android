@@ -63,12 +63,7 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Check for dark mode
-        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
-            setTheme(R.style.AppThemeDark);
-        } else {
-            setTheme(R.style.AppThemeLight);
-        }
+        updateTheme();
 
         // Remove the title bar
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -138,6 +133,11 @@ public class GameActivity extends AppCompatActivity {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onBoardUpdated(NotificationName.BoardUpdated updater) {
         updateUI();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onThemeUpdated(NotificationName.ThemeUpdated updated) {
+        updateTheme();
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -233,6 +233,15 @@ public class GameActivity extends AppCompatActivity {
                     box.setImageDrawable(null);
                 }
             }
+        }
+    }
+
+    public void updateTheme() {
+        // Check for dark mode
+        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+            setTheme(R.style.AppThemeDark);
+        } else {
+            setTheme(R.style.AppThemeLight);
         }
     }
 
