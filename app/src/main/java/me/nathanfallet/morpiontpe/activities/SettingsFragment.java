@@ -74,9 +74,9 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         moreApps.setTitle(R.string.moreApps);
         moreApps.setIntent(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/dev?id=7477103942295309472")));
 
-        Preference donate = new Preference(activityContext);
+        /*Preference donate = new Preference(activityContext);
         donate.setTitle(R.string.donate);
-        donate.setIntent(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.paypal.me/NathanFallet"))); // TODO: CHECK IF PAYPAL IS OK
+        donate.setIntent(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.paypal.me/NathanFallet")));*/
 
         // And add them to categories
         boolean darkmodeUnlocked = getPreferenceScreen().getSharedPreferences().getBoolean("darkmodeUnlocked", false);
@@ -96,7 +96,6 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         about.addPreference(instagram);
 
         groupe.addPreference(moreApps);
-        groupe.addPreference(donate);
     }
 
 }

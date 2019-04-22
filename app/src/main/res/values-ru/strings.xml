@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Menu -->
+    <string name="subname">Крестики-нолики с ИИ и дополнительными возможностями</string>
+    <string name="button1">Игрок VS Игрок</string>
+    <string name="button2">Игрок VS Компьютер</string>
+    <string name="button3">Компьютер VS Компьютер</string>
+    <string name="settings">Настройки</string>
+    <string name="bottom">Приложение сделал Nathan Fallet\n© Groupe MINASTE</string>
+
+    <!-- Game -->
+    <string name="back">Вернуться в меню</string>
+    <string name="playing_computer">Игра продолжается:\nКомпьютер (%s), твой ход!</string>
+    <string name="playing_human">Игра продолжается:\nИгрок %s, твой ход!</string>
+    <string name="ended_computer">Игра закончена!\nПобедитель: Компьютер (%s)</string>
+    <string name="ended_human">Игра закончена!\nПобедитель: Игрок %s</string>
+    <string name="ended_empty">Игра закончена!\nНичья</string>
+    <string name="unlocked_title">Вы открыли дополнительные возможности!</string>
+    <string name="unlocked_darkmode">Теперь вы можете активировать тёмную тему в настройках</string>
+    <string name="unlocked_hardcore">Теперь вы можете включить режим Хардкор в настройкахs</string>
+
+    <!-- Settings -->
+    <string name="pro">Особенности Tic TAI PRO</string>
+    <string name="no_pro">Играйте больше, чтобы открыть дополнительные возможности</string>
+    <string name="isDarkMode">Тёмная тема</string>
+    <string name="isHardcore">Активировать Хардкор</string>
+    <string name="about">Подробнее о приложении</string>
+    <string name="video">Посмотреть видео разработки</string>
+    <string name="instagram">Подписаться на создателя в Instagram</string>
+    <string name="moreApps">Больше приложений</string>
+    <string name="donate">Поддержать разработчика</string>
+</resources>

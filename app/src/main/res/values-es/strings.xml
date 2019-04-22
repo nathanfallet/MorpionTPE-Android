@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Menu -->
+    <string name="subname">Tres en raya, con IA y PRO funcionalidades</string>
+    <string name="button1">Jugador VS Jugador</string>
+    <string name="button2">Jugador VS Ordenador</string>
+    <string name="button3">Ordenador VS Ordenador</string>
+    <string name="settings">Ajustes</string>
+    <string name="bottom">App hecha por Nathan Fallet\n© Groupe MINASTE</string>
+
+    <!-- Game -->
+    <string name="back">Volver al menú</string>
+    <string name="playing_computer">Juego en proceso:\n¡Es el turno del ordenador (%s)!</string>
+    <string name="playing_human">Juego en proceso:\n¡Es el turno del jugador %s!</string>
+    <string name="ended_computer">¡Juego terminado!\nGanador: Ordenador (%s)</string>
+    <string name="ended_human">¡Juego terminado!\nGanador: Jugador %s</string>
+    <string name="ended_empty">¡Juego terminado!\nEmpate</string>
+    <string name="unlocked_title">¡Ha desbloqueado una PRO funcionalidad!</string>
+    <string name="unlocked_darkmode">Ahora puede activar el modo oscuro en los ajustes</string>
+    <string name="unlocked_hardcore">Ahora puede activar el modo hardcore en los ajustes</string>
+
+    <!-- Settings -->
+    <string name="pro">Tic TAI PRO funcionalidades</string>
+    <string name="no_pro">Juega para desbloquear PRO funcionalidades</string>
+    <string name="isDarkMode">Activar el modo oscuro</string>
+    <string name="isHardcore">Activar el modo hardcore</string>
+    <string name="about">Más sobre la aplicación</string>
+    <string name="video">Ver el video del desarrollo</string>
+    <string name="instagram">Seguir el desarrollador en Instagram</string>
+    <string name="moreApps">Más aplicaciones</string>
+    <string name="donate">Hacer un donativo</string>
+</resources>

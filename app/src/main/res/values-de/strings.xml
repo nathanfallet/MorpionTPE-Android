@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Menu -->
+    <string name="subname">tic tac toe mit KI und PRO Funktionen</string>
+    <string name="button1">Spieler vs. Spieler</string>
+    <string name="button2">Spieler vs. Computer</string>
+    <string name="button3">Computer vs. Computer</string>
+    <string name="settings">Einstellungen</string>
+    <string name="bottom">App wurde von Nathan Fallet entwickelt\n© Groupe MINASTE</string>
+
+    <!-- Game -->
+    <string name="back">Zurück zum Menü</string>
+    <string name="playing_computer">Spiel läuft:\nComputer (%s) ist am Zug!</string>
+    <string name="playing_human">Spiel läuft:\n Spieler %s ist am Zug!</string>
+    <string name="ended_computer">Spiel vorbei!\n Gewinner: Computer (%s)</string>
+    <string name="ended_human">Spiel vorbei!\nGewinner: Spieler %s</string>
+    <string name="ended_empty">Spiel vorbei!\nUnentschieden</string>
+    <string name="unlocked_title">Du hast eine PRO Funktion freigeschaltet!</string>
+    <string name="unlocked_darkmode">Sie können nun den Dunkelmodus in den Einstellungen aktivieren</string>
+    <string name="unlocked_hardcore">Sie können nun den Hardcore-Modus in den Einstellungen aktivieren</string>
+
+    <!-- Settings -->
+    <string name="pro">Tic TAI PRO Funktionen</string>
+    <string name="no_pro">Spielen Sie, um PRO Funktionen freizuschalten</string>
+    <string name="isDarkMode">Aktiviere Dark Mode</string>
+    <string name="isHardcore">Aktiviere Hardcore-Modus</string>
+    <string name="about">Mehr über die App</string>
+    <string name="video">Video zur Entwicklung dieses Spiels</string>
+    <string name="instagram">Folge dem Entwickler auf Instagram</string>
+    <string name="moreApps">Mehr Apps</string>
+    <string name="donate">Spenden</string>
+</resources>

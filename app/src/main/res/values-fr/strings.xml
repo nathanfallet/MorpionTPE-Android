@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Menu -->
+    <string name="subname">Un Morpion, avec une IA et des fonctionnalités PRO</string>
+    <string name="button1">Joueur VS Joueur</string>
+    <string name="button2">Joueur VS Ordinateur</string>
+    <string name="button3">Ordinateur VS Ordinateur</string>
+    <string name="settings">Paramètres</string>
+    <string name="bottom">App créé par Nathan Fallet\n© Groupe MINASTE</string>
+
+    <!-- Game -->
+    <string name="back">Retour au menu</string>
+    <string name="playing_computer">Partie en cours :\nC\'est au tour de l\'ordinateur (%s) !</string>
+    <string name="playing_human">Partie en cours :\nC\'est au tour du joueur %s !</string>
+    <string name="ended_computer">Partie terminée !\nGagnant : Ordinateur (%s)</string>
+    <string name="ended_human">Partie terminée !\nGagnant : Joueur %s</string>
+    <string name="ended_empty">Partie terminée !\nMatch nul</string>
+    <string name="unlocked_title">Vous avez débloqué une fonctionnalité PRO !</string>
+    <string name="unlocked_darkmode">Vous pouvez maintenant activer le thème foncé dans les paramètres</string>
+    <string name="unlocked_hardcore">Vous pouvez maintenant activer le mode hardcore dans les paramètres</string>
+
+    <!-- Settings -->
+    <string name="pro">Fonctionnalités Tic TAI PRO</string>
+    <string name="no_pro">Jouez pour débloquer des fonctionalités PRO</string>
+    <string name="isDarkMode">Activer le thème foncé</string>
+    <string name="isHardcore">Activer le mode hardcore</string>
+    <string name="about">Plus à propos de l\'application</string>
+    <string name="video">Voir la vidéo du développement</string>
+    <string name="instagram">Suivre le développeur sur Instagram</string>
+    <string name="moreApps">Plus d\'applications</string>
+    <string name="donate">Faire un don</string>
+</resources>
