@@ -111,15 +111,16 @@ public class GameActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         // We determine who play the game
+        boolean isHardcore = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("isHardcore", false);
         if (intent.getExtras().getInt("id") == R.id.button1) {
-            game = new Game(new Human(Sign.X), new Human(Sign.O));
+            game = new Game(new Human(Sign.X), new Human(Sign.O), isHardcore);
         } else if (intent.getExtras().getInt("id") == R.id.button2) {
             Player[] players_brut = {new Computer(Sign.X), new Human(Sign.O)};
             List<Player> players = Arrays.asList(players_brut);
             Collections.shuffle(players);
-            game = new Game(players.get(0), players.get(1));
+            game = new Game(players.get(0), players.get(1), isHardcore);
         } else {
-            game = new Game(new Computer(Sign.X), new Computer(Sign.O));
+            game = new Game(new Computer(Sign.X), new Computer(Sign.O), isHardcore);
         }
 
         // Load the empty grid

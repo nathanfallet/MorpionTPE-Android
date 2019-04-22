@@ -16,12 +16,14 @@ public class Game {
     private Player player1;
     private Player player2;
     private Sign current;
+    private boolean isHardcore;
 
     // Init the game
-    public Game(Player player1, Player player2) {
+    public Game(Player player1, Player player2, boolean isHardcore) {
         this.player1 = player1;
         this.player2 = player2;
         this.current = player1.sign;
+        this.isHardcore = isHardcore;
     }
 
     // Getters
@@ -39,6 +41,10 @@ public class Game {
 
     public Sign getCurrent() {
         return current;
+    }
+
+    public boolean isHardcore() {
+        return isHardcore;
     }
 
     // Gameplay

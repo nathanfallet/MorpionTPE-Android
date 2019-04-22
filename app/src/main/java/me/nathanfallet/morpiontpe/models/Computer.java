@@ -71,12 +71,16 @@ public class Computer extends Player {
 
         // We shuffle the moves
         Collections.shuffle(moves);
-        moves.sort(new Comparator<Move>() {
-            @Override
-            public int compare(Move o1, Move o2) {
-                return o2.score - o1.score;
-            }
-        });
+
+        // If hardcore is enabled, sort moves by score
+        if (game.isHardcore()) {
+            moves.sort(new Comparator<Move>() {
+                @Override
+                public int compare(Move o1, Move o2) {
+                    return o2.score - o1.score;
+                }
+            });
+        }
 
         // Return the best move
         return moves.get(0);
