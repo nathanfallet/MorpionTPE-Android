@@ -45,6 +45,7 @@ public class GameActivity extends AppCompatActivity {
     private ImageButton box8;
     private ImageButton box9;
     private TextView infos;
+    private Button again;
     private Button back;
 
     @Override
@@ -83,6 +84,7 @@ public class GameActivity extends AppCompatActivity {
         box8 = findViewById(R.id.box8);
         box9 = findViewById(R.id.box9);
         infos = findViewById(R.id.infos);
+        again = findViewById(R.id.again);
         back = findViewById(R.id.back);
 
         // Handle click
@@ -95,6 +97,22 @@ public class GameActivity extends AppCompatActivity {
         box7.setOnClickListener(new BoxClickListener(0, 2));
         box8.setOnClickListener(new BoxClickListener(1, 2));
         box9.setOnClickListener(new BoxClickListener(2, 2));
+        again.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create a new game with same players
+                game = new Game(game.getPlayer1(), game.getPlayer2(), game.isHardcore());
+                updateUI();
+
+                // And start it
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        game.nextMove();
+                    }
+                }).start();
+            }
+        });
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -196,6 +214,7 @@ public class GameActivity extends AppCompatActivity {
             } else {
                 infos.setText(getString(R.string.playing_human, game.getCurrent().toString()));
             }
+            again.setVisibility(View.INVISIBLE);
             back.setVisibility(View.INVISIBLE);
         } else {
             // Game has ended
@@ -216,6 +235,7 @@ public class GameActivity extends AppCompatActivity {
             } else {
                 infos.setText(getString(R.string.ended_empty));
             }
+            again.setVisibility(View.VISIBLE);
             back.setVisibility(View.VISIBLE);
         }
 

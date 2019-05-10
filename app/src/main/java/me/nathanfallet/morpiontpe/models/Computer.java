@@ -17,6 +17,11 @@ public class Computer extends Player {
         new Thread(new Runnable() {
             @Override
             public void run() {
+                try {
+                    Thread.sleep(1000L);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 callback.completion(best.x, best.y);
             }
         }).start();

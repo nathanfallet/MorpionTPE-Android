@@ -9,6 +9,7 @@
     <string name="bottom">App wurde von Nathan Fallet entwickelt\n© Groupe MINASTE</string>
 
     <!-- Game -->
+    <string name="again">Wieder spielen</string>
     <string name="back">Zurück zum Menü</string>
     <string name="playing_computer">Spiel läuft:\nComputer (%s) ist am Zug!</string>
     <string name="playing_human">Spiel läuft:\n Spieler %s ist am Zug!</string>

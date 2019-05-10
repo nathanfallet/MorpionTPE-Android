@@ -9,6 +9,7 @@
     <string name="bottom">App hecha por Nathan Fallet\n© Groupe MINASTE</string>
 
     <!-- Game -->
+    <string name="again">Jugar de nuevo</string>
     <string name="back">Volver al menú</string>
     <string name="playing_computer">Juego en proceso:\n¡Es el turno del ordenador (%s)!</string>
     <string name="playing_human">Juego en proceso:\n¡Es el turno del jugador %s!</string>

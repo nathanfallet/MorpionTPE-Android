@@ -9,6 +9,7 @@
     <string name="bottom">Приложение сделал Nathan Fallet\n© Groupe MINASTE</string>
 
     <!-- Game -->
+    <string name="again">снова играть</string>
     <string name="back">Вернуться в меню</string>
     <string name="playing_computer">Игра продолжается:\nКомпьютер (%s), твой ход!</string>
     <string name="playing_human">Игра продолжается:\nИгрок %s, твой ход!</string>
