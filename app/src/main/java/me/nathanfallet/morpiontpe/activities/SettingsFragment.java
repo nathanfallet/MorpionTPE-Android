@@ -15,6 +15,7 @@ import org.greenrobot.eventbus.EventBus;
 
 import me.nathanfallet.morpiontpe.R;
 import me.nathanfallet.morpiontpe.models.NotificationName;
+import me.nathanfallet.myappsandroid.preferences.MyAppPreferences;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
 
@@ -32,12 +33,12 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         PreferenceCategory about = new PreferenceCategory(activityContext);
         about.setTitle(R.string.about);
 
-        PreferenceCategory groupe = new PreferenceCategory(activityContext);
-        groupe.setTitle("Groupe MINASTE");
+        //PreferenceCategory groupe = new PreferenceCategory(activityContext);
+        //groupe.setTitle("Groupe MINASTE");
 
         getPreferenceScreen().addPreference(pro);
         getPreferenceScreen().addPreference(about);
-        getPreferenceScreen().addPreference(groupe);
+        //getPreferenceScreen().addPreference(groupe);
 
         // Create items
         Preference no_pro = new Preference(activityContext);
@@ -70,9 +71,9 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         instagram.setTitle(R.string.instagram);
         instagram.setIntent(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/nathanfallet/")));
 
-        Preference moreApps = new Preference(activityContext);
-        moreApps.setTitle(R.string.moreApps);
-        moreApps.setIntent(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/dev?id=7477103942295309472")));
+        //Preference moreApps = new Preference(activityContext);
+        //moreApps.setTitle(R.string.moreApps);
+        //moreApps.setIntent(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/dev?id=7477103942295309472")));
 
         /*Preference donate = new Preference(activityContext);
         donate.setTitle(R.string.donate);
@@ -95,7 +96,9 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         about.addPreference(video);
         about.addPreference(instagram);
 
-        groupe.addPreference(moreApps);
+        //groupe.addPreference(moreApps);
+
+        new MyAppPreferences().addPreferences(getPreferenceScreen(), requireActivity());
     }
 
 }
