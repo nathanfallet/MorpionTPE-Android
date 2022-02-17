@@ -98,7 +98,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
         //groupe.addPreference(moreApps);
 
-        new MyAppPreferences().addPreferences(getPreferenceScreen(), requireActivity());
+        new MyAppPreferences().addPreferences(getPreferenceScreen());
     }
 
 }
