@@ -77,7 +77,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
         /*Preference donate = new Preference(activityContext);
         donate.setTitle(R.string.donate);
-        donate.setIntent(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.paypal.me/NathanFallet")));*/
+        donate.setIntent(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.paypal.me/paynathanfallet")));*/
 
         // And add them to categories
         boolean darkmodeUnlocked = getPreferenceScreen().getSharedPreferences().getBoolean("darkmodeUnlocked", false);

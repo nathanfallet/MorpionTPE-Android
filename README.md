@@ -16,4 +16,4 @@ This game was developed by Nathan FALLET and published as Groupe MINASTE
 - Download the app: [Play Store](https://play.google.com/store/apps/details?id=me.nathanfallet.morpiontpe)
 - Watch the development video: [Youtube](https://www.youtube.com/watch?v=f_URCGFxfzw)
 - Follow me: [Instagram](https://www.instagram.com/nathanfallet/)
-- Donate to support me: [PayPal](https://www.paypal.me/nathanfallet)
+- Donate to support me: [PayPal](https://www.paypal.me/paynathanfallet)
